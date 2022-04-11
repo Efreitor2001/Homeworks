@@ -47,7 +47,6 @@
 // Задача 2: Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
 while(true)
 {
-    double max;
     double f_num;
     double s_num;
     double t_num;
@@ -81,28 +80,15 @@ while(true)
         num3 = Console.ReadLine();
         is_num3 = double.TryParse(num3, out t_num);
     }
-    if((f_num == s_num) & (s_num == t_num) & (t_num == f_num))
-    {
-        Console.WriteLine("Your numbers are equal");
-    }
-    else
-    {
-        if(f_num > s_num & f_num > t_num)
-        {
-            max = f_num;
-        }
-        else
-        {
-            if(s_num > f_num & s_num > t_num)
-            {
-                max = s_num;
-            }
-            else
-            {
-                max = t_num;
-            }
-        }
-
-        Console.WriteLine("The larger number is " + max);
-    }
+ if((f_num == s_num) & (s_num == t_num) & (t_num == f_num))
+ {
+             Console.WriteLine("Your numbers are equal.");
+ }
+ else
+ {
+    double max = f_num;
+    if(max < s_num) max = s_num;
+    if(max < t_num) max = t_num;
+    Console.WriteLine("The larger number is " + max);
+ }
 }
