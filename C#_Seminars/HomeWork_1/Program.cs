@@ -1,4 +1,5 @@
-﻿Console.ForegroundColor = ConsoleColor.Green; // Самая важная строчка, без неё ничего не заработает!
+﻿// Вытащите из комментария нужный while чтобы начать работу.
+Console.ForegroundColor = ConsoleColor.Green; // Самая важная строчка, без неё ничего не заработает!
 // Задача 1: Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
 /* while(true)
 {
@@ -93,8 +94,8 @@
  }
 } */
 
-//Задача 3: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
-while(true)
+// Задача 3: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
+/* while(true)
 {
     int f_num;
     Console.Write("Enter Your number: ");
@@ -117,4 +118,41 @@ while(true)
         Console.WriteLine("Your number is not even.");
     }
 
-}
+} */
+
+// Задача 4: Напишите программу, которая на вход принимает число (N), а на выходе показывает все чётные числа от 1 до N.
+/* while(true)
+{
+    Console.Write("Enter Your number: ");
+    var num1 = Console.ReadLine();
+    int num;
+    double current;
+    bool is_num = int.TryParse(num1, out num);
+    while(is_num == false)
+    if (is_num == false)
+    {
+        Console.Write("Error, please enter correct number: ");
+        num1 = Console.ReadLine();
+        is_num = int.TryParse(num1, out num);
+    }
+    if(num >= 1)
+    {
+        current = 1;
+        while(current <= num)
+        {
+            double rem = current % 2;
+            if(rem == 0) Console.Write(current + " ");
+            current++;
+        }
+    }
+    if(num <= 1)
+    {
+        current = -1;
+        while(current >= num)
+        {
+            double rem = current % 2;
+            if(rem == 0) Console.Write(current + " ");
+            current--;
+        }
+    }
+} */
