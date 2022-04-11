@@ -27,7 +27,7 @@
     }
     if(f_num == s_num)
     {
-        Console.WriteLine("Your numbers are equal");
+        Console.WriteLine("Your numbers are equal.");
     }
     else
     {
@@ -45,7 +45,7 @@
 } */
 
 // Задача 2: Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
-while(true)
+/* while(true)
 {
     double f_num;
     double s_num;
@@ -91,4 +91,30 @@ while(true)
     if(max < t_num) max = t_num;
     Console.WriteLine("The larger number is " + max);
  }
+} */
+
+//Задача 3: Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
+while(true)
+{
+    int f_num;
+    Console.Write("Enter Your number: ");
+    var num1 = Console.ReadLine();
+    bool is_num = int.TryParse(num1, out f_num);
+    while(is_num == false)
+    if (is_num == false)
+    {
+        Console.Write("Error, please enter correct number: ");
+        num1 = Console.ReadLine();
+        is_num = int.TryParse(num1, out f_num);
+    }
+    double rem = f_num % 2;
+    if(rem == 0)
+    {
+        Console.WriteLine("Your number is even.");
+    }
+    else
+    {
+        Console.WriteLine("Your number is not even.");
+    }
+
 }
