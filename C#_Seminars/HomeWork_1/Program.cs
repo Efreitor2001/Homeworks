@@ -78,8 +78,8 @@ while(true)
     if (is_num3 == false)
     {
         Console.Write("Error, please enter correct the third number: ");
-        num2 = Console.ReadLine();
-        is_num2 = double.TryParse(num3, out t_num);
+        num3 = Console.ReadLine();
+        is_num3 = double.TryParse(num3, out t_num);
     }
     if((f_num == s_num) & (s_num == t_num) & (t_num == f_num))
     {
