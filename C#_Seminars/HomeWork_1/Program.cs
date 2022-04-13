@@ -155,4 +155,5 @@ Console.ForegroundColor = ConsoleColor.Green; // Самая важная стр�
             current--;
         }
     }
+    Console.WriteLine();
 } */
