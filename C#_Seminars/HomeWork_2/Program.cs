@@ -1,11 +1,13 @@
 ﻿/* Задача 10: Напишите программу, которая принимает на вход трёхзначное число
 и на выходе показывает вторую цифру этого числа. */
-/*
+
+Console.ForegroundColor = ConsoleColor.Gray;
+Console.WriteLine("Task number 1");
 Console.ForegroundColor = ConsoleColor.Green;
 Console.Write("Input number: ");
 var number = Console.ReadLine();
 int secondNum;
-bool isNum()
+bool isNum1()
 {
     bool IsNum = int.TryParse(number, out secondNum);
     while (IsNum == false)
@@ -18,14 +20,14 @@ bool isNum()
     }
     return true;
 }
-isNum();
-void ShowSecondNum(int num)
+isNum1();
+void ShowSecondNum(int num2)
 {
-    num /= 10;
-    num %= 10;
-    if (num < 0) num *= (-1);
+    num2 /= 10;
+    num2 %= 10;
+    if (num2 < 0) num2 *= (-1);
     Console.ForegroundColor = ConsoleColor.Blue;
-    Console.WriteLine("The second digit in " + number + " is " + num + ".");
+    Console.WriteLine("The second digit in " + number + " is " + num2 + ".");
 }
 while ((Convert.ToInt32(number) < 100 || Convert.ToInt32(number) > 999) && (Convert.ToInt32(number) > (-100) || Convert.ToInt32(number) < (-999)))
 {
@@ -33,17 +35,20 @@ while ((Convert.ToInt32(number) < 100 || Convert.ToInt32(number) > 999) && (Conv
     Console.Write("Error, input correct number: ");
     Console.ForegroundColor = ConsoleColor.Green;
     number = Console.ReadLine();
-    isNum();
+    isNum1();
 }
 ShowSecondNum(secondNum);
-*/
+Console.WriteLine();
+
 // Задача 13: Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 
+Console.ForegroundColor = ConsoleColor.Gray;
+Console.WriteLine("Task number 2");
 Console.ForegroundColor = ConsoleColor.Green;
 Console.Write("Input number: ");
 var enter = Console.ReadLine();
 int num;
-bool isNum()
+bool isNum2()
 {
     bool IsNum = int.TryParse(enter, out num);
     while (IsNum == false)
@@ -56,7 +61,7 @@ bool isNum()
     }
     return true;
 }
-isNum();
+isNum2();
 void ThirdNum(int digit)
 {
     while (digit > 999 || digit < (-999))
@@ -67,7 +72,7 @@ void ThirdNum(int digit)
     digit %= 10;
     if (digit < 0) digit *= (-1);
     Console.ForegroundColor = ConsoleColor.Blue;
-    Console.Write("The third digit in " + enter + " is " + digit + ".");
+    Console.WriteLine("The third digit in " + enter + " is " + digit + ".");
 }
 if (num < 100 && num > (-100))
 {
@@ -77,10 +82,12 @@ else
 {
     ThirdNum(num);
 }
-
+Console.WriteLine();
 /* Задача 15: Напишите программу, которая принимает на вход цифру, обозначающую день недели,
 и проверяет, является ли этот день выходным. */
-/*
+
+Console.ForegroundColor = ConsoleColor.Gray;
+Console.WriteLine("Task number 3");
 Console.ForegroundColor = ConsoleColor.Green;
 bool Weekend(int dayNum)
 {
@@ -96,30 +103,30 @@ bool Weekend(int dayNum)
     }
 }
 Console.Write("Input day: ");
-var num = Console.ReadLine();
+var num3 = Console.ReadLine();
 int day;
-bool isNum()
+bool isNum3()
 {
-    bool IsNum = int.TryParse(num, out day);
+    bool IsNum = int.TryParse(num3, out day);
     while (IsNum == false)
     {
         Console.ForegroundColor = ConsoleColor.Red;
         Console.Write("Error, input correct day: ");
         Console.ForegroundColor = ConsoleColor.Green;
-        num = Console.ReadLine();
-        IsNum = int.TryParse(num, out day);
+        num3 = Console.ReadLine();
+        IsNum = int.TryParse(num3, out day);
     }
     return true;
 }
-isNum();
+isNum3();
 while (day < 1 || day > 7)
 {
     Console.ForegroundColor = ConsoleColor.Red;
     Console.WriteLine("Error!!! Week has only 7 days!");
     Console.ForegroundColor = ConsoleColor.Green;
     Console.Write("Please input correct day: ");
-    num = Console.ReadLine();
-    isNum();
+    num3 = Console.ReadLine();
+    isNum3();
 }
 if (Weekend(day) == true)
 {
@@ -131,4 +138,3 @@ else
     Console.ForegroundColor = ConsoleColor.Yellow;
     Console.WriteLine("Today is not a weekend! =(");
 }
-*/
