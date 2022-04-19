@@ -1,6 +1,8 @@
 ﻿/* Задача 19. Напишите программу, которая принимает на вход пятизначное число
- и проверяет, является ли оно палиндромом. */
-/* Console.ForegroundColor = ConsoleColor.Green;
+   и проверяет, является ли оно палиндромом. */
+Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine("Task #1");
+Console.ForegroundColor = ConsoleColor.Green;
 void Pal(string s)
 {
     var b = new string(s.Reverse().ToArray());
@@ -42,25 +44,22 @@ while (Convert.ToInt32(a) < 10000 || Convert.ToInt32(a) > 99999)
     isNum();
 }
 a = Convert.ToString(c);
-Pal(a); */
+Pal(a);
+Console.WriteLine();
 
 /* Задача 21. Напишите программу, которая принимает на вход координаты двух точек
- и находит расстояние между ними в 3D пространстве. */
+   и находит расстояние между ними в 3D пространстве. */
+Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine("Task #2");
 Console.ForegroundColor = ConsoleColor.Green;
-/*void A(double xA, double yA, double zA)
-{
-    xA = Convert.ToDouble(Console.Read());
-    yA = Convert.ToDouble(Console.Read());
-    zA = Convert.ToDouble(Console.Read());
-}*/
-void DotA(double[] a)
+void DotA(double[] a) // Лол, Дота xD
 {
     Console.ForegroundColor = ConsoleColor.Green;
     int i = 0;
     for (i = 0; i < 3; i++)
     {
         var d = "0";
-        void isNum() // Не судите строго пожалуйся, я 4 часа пытался сделать его отдельным методом,
+        void isNum() // Не судите строго пожалуйста, я 4 часа пытался сделать его отдельным методом,
         {           //  но получилось только метод в метод 
             double c;
             bool IsNum = double.TryParse(d, out c);
@@ -150,3 +149,38 @@ DotB(B);
 double dist = Math.Sqrt(Math.Pow((B[0] - A[0]), 2) + Math.Pow((B[1] - A[1]), 2) + Math.Pow((B[2] - A[2]), 2));
 Console.ForegroundColor = ConsoleColor.Blue;
 Console.WriteLine("Distance = " + Math.Round(dist, 2));
+Console.WriteLine();
+
+/* Задача 23. Напишите программу, которая принимает на вход число (N) 
+   и выдаёт таблицу кубов чисел от 1 до N. */
+Console.ForegroundColor = ConsoleColor.White;
+Console.WriteLine("Task #3");
+Console.ForegroundColor = ConsoleColor.Green;
+void Cube(int cubeNum)
+{
+    Console.ForegroundColor = ConsoleColor.Blue;
+    int count = 0;
+    double result = 0;
+    Console.Write(cubeNum + " -> ");
+    while (count < cubeNum - 1)
+    {
+        result = Math.Pow(++count, 3);
+        Console.Write(result + ", ");
+    }
+    result = Math.Pow(++count, 3); // Чтобы точка в конце была, а не запитая)
+    Console.Write(result + ".");
+}
+Console.Write("Input number: ");
+var num = Console.ReadLine();
+int c1;
+bool IsNum = int.TryParse(num, out c1);
+while (IsNum == false)
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.Write("Error, input correct numner: ");
+    Console.ForegroundColor = ConsoleColor.Green;
+    num = Console.ReadLine();
+    IsNum = int.TryParse(num, out c1);
+}
+Cube(c1);
+Console.WriteLine();
