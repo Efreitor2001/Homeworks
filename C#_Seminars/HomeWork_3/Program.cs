@@ -35,7 +35,7 @@ void isNum()
     }
 }
 isNum();
-while (Convert.ToInt32(a) < 10000 || Convert.ToInt32(a) > 99999)
+while ((Convert.ToInt32(a) < 10000 || Convert.ToInt32(a) > 99999) && (Convert.ToInt32(a) > -10000 || Convert.ToInt32(a) < -99999))
 {
     Console.ForegroundColor = ConsoleColor.Red;
     Console.Write("Error, input correct numner: ");
@@ -43,6 +43,11 @@ while (Convert.ToInt32(a) < 10000 || Convert.ToInt32(a) > 99999)
     a = Console.ReadLine();
     isNum();
 }
+if (c < 0)
+{
+    c = c * (-1);
+}
+
 a = Convert.ToString(c);
 Pal(a);
 Console.WriteLine();
@@ -181,6 +186,10 @@ while (IsNum == false)
     Console.ForegroundColor = ConsoleColor.Green;
     num = Console.ReadLine();
     IsNum = int.TryParse(num, out c1);
+}
+if (c1 < 0)
+{
+    c1 = c1 * (-1);
 }
 Cube(c1);
 Console.WriteLine();
