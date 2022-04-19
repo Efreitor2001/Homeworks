@@ -55,21 +55,43 @@ Console.ForegroundColor = ConsoleColor.Green;
 }*/
 void DotA(double[] a)
 {
-    for (int i = 0; i < 3; i++)
+    Console.ForegroundColor = ConsoleColor.Green;
+    int i = 0;
+    for (i = 0; i < 3; i++)
     {
+        var d = "0";
+        void isNum() // Не судите строго пожалуйся, я 4 часа пытался сделать его отдельным методом,
+        {           //  но получилось только метод в метод 
+            double c;
+            bool IsNum = double.TryParse(d, out c);
+            while (IsNum == false)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("Error, input correct numner: ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                d = Console.ReadLine();
+                IsNum = double.TryParse(d, out c);
+            }
+        }
         switch (i)
         {
             case 0:
                 Console.Write("Input X coordinate for A dot: ");
-                a[i] = Convert.ToDouble(Console.ReadLine());
+                d = Console.ReadLine();
+                isNum();
+                a[i] = Convert.ToInt32(d);
                 break;
             case 1:
                 Console.Write("Input Y coordinate for A dot: ");
-                a[i] = Convert.ToDouble(Console.ReadLine());
+                d = Console.ReadLine();
+                isNum();
+                a[i] = Convert.ToDouble(d);
                 break;
             case 2:
                 Console.Write("Input Z coordinate for A dot: ");
-                a[i] = Convert.ToDouble(Console.ReadLine());
+                d = Console.ReadLine();
+                isNum();
+                a[i] = Convert.ToDouble(d);
                 break;
         }
 
@@ -78,21 +100,43 @@ void DotA(double[] a)
 }
 void DotB(double[] b)
 {
-    for (int i = 0; i < 3; i++)
+    Console.ForegroundColor = ConsoleColor.Yellow;
+    int i = 0;
+    for (i = 0; i < 3; i++)
     {
+        var d = "0";
+        void isNum()
+        {
+            double c;
+            bool IsNum = double.TryParse(d, out c);
+            while (IsNum == false)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.Write("Error, input correct numner: ");
+                Console.ForegroundColor = ConsoleColor.Green;
+                d = Console.ReadLine();
+                IsNum = double.TryParse(d, out c);
+            }
+        }
         switch (i)
         {
             case 0:
                 Console.Write("Input X coordinate for B dot: ");
-                b[i] = Convert.ToDouble(Console.ReadLine());
+                d = Console.ReadLine();
+                isNum();
+                b[i] = Convert.ToDouble(d);
                 break;
             case 1:
                 Console.Write("Input Y coordinate for B dot: ");
-                b[i] = Convert.ToDouble(Console.ReadLine());
+                d = Console.ReadLine();
+                isNum();
+                b[i] = Convert.ToDouble(d);
                 break;
             case 2:
                 Console.Write("Input Z coordinate for B dot: ");
-                b[i] = Convert.ToDouble(Console.ReadLine());
+                d = Console.ReadLine();
+                isNum();
+                b[i] = Convert.ToDouble(d);
                 break;
         }
 
@@ -104,4 +148,5 @@ DotA(A);
 double[] B = new double[3];
 DotB(B);
 double dist = Math.Sqrt(Math.Pow((B[0] - A[0]), 2) + Math.Pow((B[1] - A[1]), 2) + Math.Pow((B[2] - A[2]), 2));
-Console.WriteLine(Math.Round(dist, 2));
+Console.ForegroundColor = ConsoleColor.Blue;
+Console.WriteLine("Distance = " + Math.Round(dist, 2));
