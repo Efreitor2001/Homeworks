@@ -19,6 +19,26 @@ void Pal(string s)
         Console.WriteLine("NOT a palindrome");
     }
 }
+/* Ещё 1 вариант)))
+void Pal(int n)
+{
+    int n1 = n;
+    int num2 = 0;
+    for (int count = 0; count < 5; count++)
+    {
+        num2 = num2 * 10 + (n1 % 10);
+        n1 /= 10;
+    }
+    if (n == num2)
+    {
+        Console.WriteLine("is Pal");
+    }
+    else
+    {
+        Console.WriteLine("is NOT Pal");
+    }
+}
+*/
 Console.Write("Input number: ");
 var a = Console.ReadLine();
 int c;
