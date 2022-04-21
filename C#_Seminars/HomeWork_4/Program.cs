@@ -1,14 +1,13 @@
-﻿int c;
-/* Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами.
+﻿/* Задача 34: Задайте массив заполненный случайными положительными трёхзначными числами.
 Напишите программу, которая покажет количество чётных чисел в массиве. */
 
-int CountArray(int lengthArray)
+int CountArray(int lengthArray, int minRandom, int maxRandom)
 {
     int[] a = new int[lengthArray];
     int count = 0;
     for (int i = 0; i < a.Length; i++)
     {
-        a[i] = new Random().Next();
+        a[i] = new Random().Next(minRandom, maxRandom);
         Console.Write(a[i] + " ");
         if (a[i] % 2 == 0)
         {
@@ -20,32 +19,27 @@ int CountArray(int lengthArray)
 }
 Console.WriteLine("Task #1");
 Console.Write("Input array lenght: ");
-var length1 = Console.ReadLine();
-bool IsNum1 = int.TryParse(length1, out c);
-while (IsNum1 == false)
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.Write("Error, input correct numner: ");
-    Console.ForegroundColor = ConsoleColor.Green;
-    length1 = Console.ReadLine();
-    IsNum1 = int.TryParse(length1, out c);
-}
-Console.WriteLine("Count even numbers in array = " + CountArray(Convert.ToInt32(length1)));
+int length1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input min value for random: ");
+int min1 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input max value for random: ");
+int max1 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Count even numbers in array = " + CountArray(length1, min1, ++max1));
 Console.WriteLine();
 
 /* Задача 36: Задайте одномерный массив, заполненный случайными числами.
 Найдите сумму элементов, стоящих на нечётных позициях. */
 
-int SumArray(int lengthArray)
+int SumArray(int lengthArray, int minRandom, int maxRandom)
 {
     int[] b = new int[lengthArray];
     int sum = 0;
     for (int index = 0; index < b.Length; index++)
     {
-        b[index] = new Random().Next();
+        b[index] = new Random().Next(minRandom, maxRandom);
         Console.Write(b[index] + " ");
-        if (index % 2 != 0)
-        {
+        if (index % 2 == 0) // Если 0 индекс это 1 позиция, то так, если имеется ввиду чётность индекса,
+        {                   // то index % 2 != 0
             sum += b[index];
         }
     }
@@ -54,17 +48,12 @@ int SumArray(int lengthArray)
 }
 Console.WriteLine("Task #2");
 Console.Write("Input array lenght: ");
-var length2 = Console.ReadLine();
-bool IsNum2 = int.TryParse(length2, out c);
-while (IsNum2 == false)
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.Write("Error, input correct numner: ");
-    Console.ForegroundColor = ConsoleColor.Green;
-    length2 = Console.ReadLine();
-    IsNum2 = int.TryParse(length2, out c);
-}
-Console.WriteLine("Sum elements in odd positions = " + SumArray(Convert.ToInt32(length2)));
+int length2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input min value for random: ");
+int min2 = Convert.ToInt32(Console.ReadLine());
+Console.Write("Input max value for random: ");
+int max2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Sum elements in odd positions = " + SumArray(length2, min2, ++max2));
 Console.WriteLine();
 
 /* Задача 38: Задайте массив вещественных чисел.
@@ -99,15 +88,6 @@ void DiffArray(int lengthArray)
 }
 Console.WriteLine("Task #3");
 Console.Write("Input array lenght: ");
-var length3 = Console.ReadLine();
-bool IsNum3 = int.TryParse(length3, out c);
-while (IsNum3 == false)
-{
-    Console.ForegroundColor = ConsoleColor.Red;
-    Console.Write("Error, input correct numner: ");
-    Console.ForegroundColor = ConsoleColor.Green;
-    length3 = Console.ReadLine();
-    IsNum3 = int.TryParse(length3, out c);
-}
-DiffArray(Convert.ToInt32(length3));
+int length3 = Convert.ToInt32(Console.ReadLine());
+DiffArray(length3);
 Console.WriteLine();
