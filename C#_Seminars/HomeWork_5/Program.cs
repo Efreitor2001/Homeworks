@@ -39,3 +39,5 @@ for (int j = 0; j < array.Length - 1; j++)
     Console.Write(array[j] + ", ");
 }
 Console.WriteLine(array[7] + "]");
+
+// Лис Сэнсей, в чём подвох!? \\
