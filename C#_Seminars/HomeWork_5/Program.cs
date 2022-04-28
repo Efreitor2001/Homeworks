@@ -28,16 +28,23 @@ Console.WriteLine(res); // Самое универсальное решение 
 
 // Задача 3: Напишите программу, которая задаёт массив
 // из 8 элементов и выводит их на экран.
-int[] array = new int[8];
-Console.Write("[");
-for (int i = 0; i < array.Length; i++)
+int[] CreateArray()
 {
-    array[i] = new Random().Next(1, 101);
+    int[] array = new int[8];
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(1, 101);
+    }
+    return array;
 }
-for (int j = 0; j < array.Length - 1; j++)
+void PrintArray(int[] a)
 {
-    Console.Write(array[j] + ", ");
+    Console.Write("[");
+    for (int i = 0; i < a.Length - 1; i++)
+    {
+        Console.Write(a[i] + ", ");
+    }
+    Console.WriteLine(a[7] + "]");
 }
-Console.WriteLine(array[7] + "]");
-
+PrintArray(CreateArray());
 // Лис Сэнсей, в чём подвох!? \\
