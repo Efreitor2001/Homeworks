@@ -1,43 +1,43 @@
 ﻿// Задача 41: Пользователь вводит с клавиатуры M чисел.
 // Посчитайте, сколько чисел больше 0 ввёл пользователь.
-// int CountGreaterZero(int[] a)
-// {
-//     int count = 0;
-//     for (int i = 0; i < a.Length; i++)
-//     {
-//         if (a[i] > 0) count++;
-//     }
-//     return count;
-// }
-// int[] CreateArray(int num)
-// {
-//     int[] array = new int[num];
-//     for (int i = 0; i < array.Length; i++)
-//     {
-//         Console.Write($"Input {i + 1} number: ");
-//         array[i] = Convert.ToInt32(Console.ReadLine());
-//     }
-//     return array;
-// }
-// Console.Write("Input count numbers: ");
-// int n = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine($"Count numbers greater than zero = {CountGreaterZero(CreateArray(n))}");
+int CountGreaterZero(int[] a)
+{
+    int count = 0;
+    for (int i = 0; i < a.Length; i++)
+    {
+        if (a[i] > 0) count++;
+    }
+    return count;
+}
+int[] CreateArray(int num)
+{
+    int[] array = new int[num];
+    for (int i = 0; i < array.Length; i++)
+    {
+        Console.Write($"Input {i + 1} number: ");
+        array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+    return array;
+}
+Console.Write("Input count numbers: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"Count numbers greater than zero = {CountGreaterZero(CreateArray(n))}");
 
 // // Задача 42: Напишите программу, которая будет преобразовывать десятичное число в двоичное.
-// string TBNS(int num)
-// {
-//     string result = String.Empty;
-//     while (num > 0)
-//     {
-//         result += Convert.ToString((num % 2));
-//         num /= 2;
-//     }
-//     result = new string (result.Reverse().ToArray());
-//     return  result;
-// }
-// Console.Write("Input number to convert in TBNS: ");
-// int num2 = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine($"Your number in the binary numeral system = {TBNS(num2)}");
+string TBNS(int num)
+{
+    string result = String.Empty;
+    while (num > 0)
+    {
+        result += Convert.ToString((num % 2));
+        num /= 2;
+    }
+    result = new string (result.Reverse().ToArray());
+    return  result;
+}
+Console.Write("Input number to convert in TBNS: ");
+int num2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine($"Your number in the binary numeral system = {TBNS(num2)}");
 
 // Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых,
 // заданных уравнениями y = k1 * x + b1, y = k2 * x + b2;
