@@ -51,7 +51,7 @@ elif qrtr == 3:
 else:
     print(('X > 0 - (+∞); Y < 0 - (-∞)'))
 
-# Напишите программу, которая принимает на вход координаты двух точек
+# 5. Напишите программу, которая принимает на вход координаты двух точек
 # и находит расстояние между ними в 2D пространстве.
 xA = float(input('Enter the X coordinate for point A: '))
 yA = float(input('Enter the Y coordinate for point A: '))
