@@ -50,17 +50,20 @@
 # которая выведет список неповторяющихся элементов исходной последовательности.
 def Unique(n):
     x = 0
-    a = list(n)
+    a = list(n.split())
     b = []
-    c = 0
-    for i in range(len(a)):
+    i = 0
+    while i < len(a):
         x = a[i]
+        c = 0
         for j in range(len(a)):
-            if a[j] == int(x):
+            if int(a[j]) == int(x):
                 c += 1
         if c < 2:
-            b.append[i]
+            b.append(int(x))
+        i += 1
     return b
 
-num = 1, 1, 2, 3, 2, 2
-print(Unique(num))
+
+num = input('Enter Your numbers separated by a space: ')
+print(f'Unique elements are: {Unique(num)}')
