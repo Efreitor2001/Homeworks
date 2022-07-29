@@ -81,3 +81,10 @@
 #     print('same')
 # else:
 #     print('different')
+
+# Безимянная задачка
+# def print_operation_table(operation, num_rows, num_columns):
+#     for i in range(1, num_rows + 1):
+#         for j in range(i, i * num_columns + 1, i):
+#             print(j, end='\t')
+#         print()
