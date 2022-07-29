@@ -33,29 +33,51 @@
 # print(*find_farthest_orbit(orbits))
 
 # Пам-парам парам-пам парам
-def param(s):
-    a = s.split()
-    count = 0
-    cl = []
-    check = 'ауоыэяюёиеaeiouy'
-    for i in a:
-        for j in i:
-            for g in check:
-                if g in j:
-                    count += 1
-        if count > 0:
-            cl.append(count)
-        count = 0
-    y = cl[0]
-    b = list(filter(lambda x: x == y, cl))  # использовал lamda-функцию в сочетании с функцией высшего порядка =)
-    if len(cl) == len(b):
-        return True
-    else:
-        return False
+# def param(s):
+#     a = s.split()
+#     count = 0
+#     cl = []
+#     check = 'ауоыэяюёиеaeiouy'
+#     for i in a:
+#         for j in i:
+#             for g in check:
+#                 if g in j:
+#                     count += 1
+#         if count > 0:
+#             cl.append(count)
+#         count = 0
+#     y = cl[0]
+#     b = list(filter(lambda x: x == y, cl))  # использовал lamda-функцию в сочетании с функцией высшего порядка =)
+#     if len(cl) == len(b):
+#         return True
+#     else:
+#         return False
+#
+#
+# verse = str(input('Enter Your verse: '))
+# if param(verse):
+#     print("Парам пам-пам")
+# else:
+#     print("Пам парам")
 
-
-verse = str(input('Enter Your verse: '))
-if param(verse):
-    print("Парам пам-пам")
-else:
-    print("Пам парам")
+# Все равны, как на подбор
+# def same_by(characteristic, objects):
+#     a = []
+#     for i in objects:
+#         if characteristic(i) == 0:
+#             a.append(True)
+#         else:
+#             a.append(False)
+#     y = a[0]
+#     b = list(filter(lambda x: x == y, a))
+#     if len(a) == len(b):
+#         return True
+#     else:
+#         return False
+#
+#
+# values = [0, 2, 4, 6]
+# if same_by(lambda x: x % 2, values):
+#     print('same')
+# else:
+#     print('different')
