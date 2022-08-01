@@ -9,6 +9,6 @@ lst = [f'Last name: {ln}', f'First name: {fn}', f'Phone: {p}', f'Description: {d
 def write_pb():
     f = open('/home/efreitor2001/Homeworks/Python_Seminars/HomeWork_7/phonebook.txt', 'a')
     for i in lst:
-        f.write('\n' + i)
+        f.write(i + '\n')
     f.write('\n')
     f.close()
