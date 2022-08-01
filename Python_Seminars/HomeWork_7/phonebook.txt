@@ -1,4 +1,0 @@
-
-Last name: 1
-First name: 2
-Phone: 3
