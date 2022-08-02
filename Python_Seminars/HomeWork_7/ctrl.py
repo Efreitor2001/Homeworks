@@ -2,11 +2,10 @@ from commands import cmd
 
 
 def start():
-    cmd.lower()
-    if cmd == 'add':
+    if cmd.lower() == 'add':
         from pb_writer import write_pb
         write_pb()
-    elif cmd == 'list':
+    elif cmd.lower() == 'list':
         ui = int(input('Select display option (1 or 2): '))
         if ui == 1:
             from ui_1 import read_pb_1
