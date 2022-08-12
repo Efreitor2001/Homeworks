@@ -64,17 +64,17 @@ async def helps(message):
 async def add_pb(message):
     if len(message.text.split()) > 2 and len(message.text.split()) > 4:
         p_name = "".join(message.text.split()[1])
-        test = f'SELECT name_pb FROM pb WHERE users_id == {message.from_user.id}'
+        test = f'SELECT phone FROM pb WHERE users_id == {message.from_user.id}'
         cursor.execute(test)
         check = cursor.fetchall()
         conn.commit()
-        if p_name in str(check):
-            await message.reply('У Вас уже есть такая книга!!!')
+        u_name = "".join(message.text.split()[2])
+        u_surname = "".join(message.text.split()[3])
+        u_about = " ".join(message.text.split()[5:])
+        u_phone = int("".join(message.text.split()[4]))
+        if str(u_phone) in str(check):
+            await message.reply('У Вас уже есть такой контакт!!!')
         else:
-            u_name = "".join(message.text.split()[2])
-            u_surname = "".join(message.text.split()[3])
-            u_about = " ".join(message.text.split()[5:])
-            u_phone = int("".join(message.text.split()[4]))
             u_id = message.from_user.id
             if p_name == ' ':
                 await message.reply('<b>Используйте <code>/add имя_телефонной_книги* Имя* '
@@ -82,7 +82,6 @@ async def add_pb(message):
                                     '* - обязательно к заполнению</b>',
                                     parse_mode='html')
             else:
-                print(p_name)
                 add(users_id=u_id, name_pb=p_name, name=u_name, surname=u_surname, about=u_about, phone=u_phone)
                 await message.reply('Запись успешно добавлена!')
     elif len(message.text.split()) < 5:
@@ -91,7 +90,6 @@ async def add_pb(message):
                             'Фамилия Номер* Описание(можно с пробелами)</code>...\n'
                             '"*" - обязательно к заполнению</b>',
                             parse_mode='html')
-
     else:
         await message.reply('<b>Название книги не может быть пустым!!!\n'
                             'Используйте <code>/add имя_телефонной_книги* Имя* '
@@ -102,8 +100,14 @@ async def add_pb(message):
 
 @dp.message_handler(commands=['list'])
 async def ppb(message):
-    mess = str(print_pb(message)).replace('[(', '').replace(',), ', '\n').replace(',)]', '').replace('(', '')
-    await message.reply(mess)
+    res = ''
+    mess = str(print_pb(message)).replace('[(', '').replace(',), ', ',').replace(',)]', '').replace('(', '') \
+        .replace("'", "").split(',')
+    for i in mess:
+        if i not in res:
+            res += i + '\n'
+
+    await message.reply(res)
 
 
 print('run')
