@@ -31,7 +31,25 @@ def print_pb(message):
         cursor.execute(pb)
         pbs = cursor.fetchall()
         conn.commit()
-        return pbs
+        res = ''
+        mess = str(pbs).replace('[(', '').replace(',), ', ',').replace(',)]', '').replace('(', '') \
+            .replace("'", "").split(',')
+        for i in mess:
+            if i not in res:
+                res += i + '\n'
+        return res
+
+
+def print_in_pb(message):
+    if len(message.text.split()) >= 2:
+        pn = "".join(message.text.split()[1])
+        pb = f"SELECT name,surname,phone,about FROM pb WHERE users_id = {message.from_user.id} AND name_pb = '{pn}'"
+        cursor.execute(pb)
+        pbs = cursor.fetchall()
+        conn.commit()
+        res = str(pbs).replace("[('", '').replace("', '", " ").replace("', ", "\n").replace(", '", "\n") \
+            .replace("'), ('", "\n\n").replace("')]", "")
+        return res
 
 
 @dp.message_handler(commands=['start'])
@@ -100,14 +118,10 @@ async def add_pb(message):
 
 @dp.message_handler(commands=['list'])
 async def ppb(message):
-    res = ''
-    mess = str(print_pb(message)).replace('[(', '').replace(',), ', ',').replace(',)]', '').replace('(', '') \
-        .replace("'", "").split(',')
-    for i in mess:
-        if i not in res:
-            res += i + '\n'
-
-    await message.reply(res)
+    if len(message.text.split()) < 2:
+        await message.reply(print_pb(message))
+    else:
+        await message.reply(print_in_pb(message))
 
 
 print('run')
