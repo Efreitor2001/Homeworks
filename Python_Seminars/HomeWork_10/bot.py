@@ -41,7 +41,7 @@ def print_pb(message):
 
 
 def print_in_pb(message):
-    if len(message.text.split()) >= 2:
+    if len(message.text.split()) == 2:
         pn = "".join(message.text.split()[1])
         pb = f"SELECT name,surname,phone,about FROM pb WHERE users_id = {message.from_user.id} AND name_pb = '{pn}'"
         cursor.execute(pb)
@@ -50,6 +50,25 @@ def print_in_pb(message):
         res = str(pbs).replace("[('", '').replace("', '", " ").replace("', ", "\n").replace(", '", "\n") \
             .replace("'), ('", "\n\n").replace("')]", "")
         return res
+    else:
+        if "".join(message.text.split()[2]) == '1':
+            pn = "".join(message.text.split()[1])
+            pb = f"SELECT name,surname,phone,about FROM pb WHERE users_id = {message.from_user.id} AND name_pb = '{pn}'"
+            cursor.execute(pb)
+            pbs = cursor.fetchall()
+            conn.commit()
+            res = str(pbs).replace("[('", '').replace("', '", " ").replace("', ", ", ").replace(", '", ", ") \
+                .replace("'), ('", ";\n").replace("')]", ".")
+            return res
+        else:
+            pn = "".join(message.text.split()[1])
+            pb = f"SELECT name,surname,phone,about FROM pb WHERE users_id = {message.from_user.id} AND name_pb = '{pn}'"
+            cursor.execute(pb)
+            pbs = cursor.fetchall()
+            conn.commit()
+            res = str(pbs).replace("[('", '').replace("', '", " ").replace("', ", "\n").replace(", '", "\n") \
+                .replace("'), ('", "\n\n").replace("')]", "")
+            return res
 
 
 @dp.message_handler(commands=['start'])
@@ -69,13 +88,12 @@ async def start(message):
 @dp.message_handler(commands=['help'])
 async def helps(message):
     await message.reply('/list - Список Ваших книг\n'
+                        '<b>Используйте <code>/list - вывести Ваши книги</code>\n'
+                        '<code>/list имя_книги способ_вывода(1/2) - вывести контакты из выбранной книги</code></b>\n'
                         '\n/add - Сделать новую запись в телефонную книгу\n'
                         '<b>Используйте <code>/add имя_телефонной_книги* Имя* '
                         'Фамилия Номер* Описание(можно с пробелами)</code>...\n'
-                        '"*" - обязательно к заполнению</b>\n\n'
-                        '/edit - Редактировать запись в телефонной книге\n'
-                        '/del - Удалить запись из телефонной книги',
-                        parse_mode='html')
+                        '"*" - обязательно к заполнению</b>\n\n', parse_mode='html')
 
 
 @dp.message_handler(commands=['add'])
