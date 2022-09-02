@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class HW_1 {
     public static void main(String[] args) {
-        Scanner s = new Scanner(System.in);
-        try (s) {
+        try (Scanner s = new Scanner(System.in)) {
             do {
                 System.out.print("Введите первое число: ");
                 float num1 = s.nextFloat();
@@ -41,8 +40,8 @@ public class HW_1 {
     static boolean check(Scanner s) {
         boolean chk;
         System.out.print("Хотите посчитать что-то ещё? (Да/Нет): ");
-        String ch = s.next().toLowerCase();
-        if (ch.equals("да")) {
+        String ch = s.next();
+        if (ch.equalsIgnoreCase("да")) {
             chk = true;
         } else {
             chk = false;
