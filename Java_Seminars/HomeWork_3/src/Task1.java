@@ -1,11 +1,17 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 //Реализовать алгоритм сортировки слиянием
 public class Task1 {
     public static void main(String[] args) {
+        Logger logger = Logger.getLogger(Task1.class.getName()); // Вы говорили, что теперь в каждом ДЗ мы должны его использовать)))
         int[] l = {5, 2, 3, 1, 4};
         int[] res = sortArray(l);
         for (int i : res) {
             System.out.print(i + " ");
         }
+        System.out.println();
+        logger.log(Level.INFO, "Done");
     }
 
     public static int[] sortArray(int[] array) {
@@ -30,7 +36,7 @@ public class Task1 {
         return array;
     }
 
-    private static void mergeArray(int[] array, int[] arrayB, int[] arrayC) {
+    public static void mergeArray(int[] array, int[] arrayB, int[] arrayC) {
 
         int positionB = 0;
         int positionC = 0;
