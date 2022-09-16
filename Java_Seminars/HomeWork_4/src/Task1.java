@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,35 +19,51 @@ import java.util.logging.Logger;
 public class Task1 {
     public static void main(String[] args) {
         try (Scanner scan = new Scanner(System.in)) {
-            int[] arr = new int[]{1, 2, 3, 4, 5};
+            int[] arr = new int[]{1, 2, 3, 4};
             Logger logg = Logger.getLogger(Task1.class.getName());
-            logg.log(Level.INFO, "Enter Your number: ");
-            Integer n = scan.nextInt();
-            for (int i : arr) {
-                System.out.print(i + " ");// Не получилось адекватно вывести массв через логгер
-            }
+            logg.log(Level.WARNING, Arrays.toString(arr));
             System.out.println();
+            logg.log(Level.WARNING, Boolean.toString(offerFirst(arr, logg, scan)));
+            logg.log(Level.WARNING, Boolean.toString(offerLast(arr, logg, scan)));
             try {
-                logg.log(Level.INFO, Integer.toString(pollLast(arr, logg)));
+                logg.log(Level.WARNING, Integer.toString(peekFirst(arr, logg)));
+
             } catch (Exception ex) {
-                logg.log(Level.INFO, "null");
+                logg.log(Level.WARNING, "null");
+            }
+            try {
+                logg.log(Level.WARNING, Integer.toString(peekLast(arr, logg)));
+
+            } catch (Exception ex) {
+                logg.log(Level.WARNING, "null");
+            }
+            try {
+                logg.log(Level.WARNING, Integer.toString(pollFirst(arr, logg)));
+
+            } catch (Exception ex) {
+                logg.log(Level.WARNING, "null");
+            }
+            try {
+                logg.log(Level.WARNING, Integer.toString(pollLast(arr, logg)));
+
+            } catch (Exception ex) {
+                logg.log(Level.WARNING, "null");
             }
         }
 
     }
 
-    public static boolean offerFirst(int[] a, Logger lg, Integer el) {
+    public static boolean offerFirst(int[] a, Logger lg, Scanner scn) {
         try {
+            lg.log(Level.INFO, "Enter Your number: ");
+            int el = scn.nextInt();
             int[] a2 = new int[a.length + 1];
             if (a2.length > 5) {
                 return false;
             }
             a2[0] = el;
             System.arraycopy(a, 0, a2, 1, a.length);
-            for (int i : a2) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
+            lg.log(Level.WARNING, Arrays.toString(a2));
             return true;
         } catch (Exception ex) {
             lg.log(Level.FINEST, ex.getMessage());
@@ -54,18 +71,17 @@ public class Task1 {
         }
     }
 
-    public static boolean offerLast(int[] a, Logger lg, Integer el) {
+    public static boolean offerLast(int[] a, Logger lg, Scanner scn) {
         try {
+            lg.log(Level.INFO, "Enter Your number: ");
+            int el = scn.nextInt();
             int[] a2 = new int[a.length + 1];
             if (a2.length > 5) {
                 return false;
             }
             a2[a2.length - 1] = el;
             System.arraycopy(a, 0, a2, 0, a.length);
-            for (int i : a2) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
+            lg.log(Level.WARNING, Arrays.toString(a2));
             return true;
         } catch (Exception ex) {
             lg.log(Level.FINEST, ex.getMessage());
@@ -99,10 +115,7 @@ public class Task1 {
         if (a.length > 0 & a.length <= 5) {
             int[] a2 = new int[a.length - 1];
             System.arraycopy(a, 1, a2, 0, a2.length);
-            for (int i : a2) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
+            lg.log(Level.WARNING, Arrays.toString(a2));
             return a[0];
         } else if (a.length > 5) {
             lg.log(Level.WARNING, "Array size > 5");
@@ -116,11 +129,8 @@ public class Task1 {
         if (a.length > 0 & a.length <= 5) {
             int[] a2 = new int[a.length - 1];
             System.arraycopy(a, 0, a2, 0, a2.length);
-            for (int i : a2) {
-                System.out.print(i + " ");
-            }
-            System.out.println();
-            return a[0];
+            lg.log(Level.WARNING, Arrays.toString(a2));
+            return a[a.length - 1];
         } else if (a.length > 5) {
             lg.log(Level.WARNING, "Array size > 5");
             return null;
