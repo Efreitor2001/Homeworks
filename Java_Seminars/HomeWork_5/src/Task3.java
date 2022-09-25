@@ -3,10 +3,8 @@ public class Task3 {
     public static void main(String args[]) {
         int arr[] = {12, 11, 13, 5, 6, 7};
         int n = arr.length;
-
         Task3 ob = new Task3();
         ob.sort(arr);
-
         System.out.println("Sorted array is");
         printArray(arr);
     }
