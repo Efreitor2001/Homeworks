@@ -1,11 +1,15 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 //Реализовать алгоритм пирамидальной сортировки (HeapSort).
 public class Task3 {
     public static void main(String args[]) {
-        int arr[] = {12, 11, 13, 5, 6, 7};
+        Logger lg = Logger.getLogger(Task3.class.getName());
+        int arr[] = {1432, 141, 113, 335, 46, 7};
         int n = arr.length;
         Task3 ob = new Task3();
         ob.sort(arr);
-        System.out.println("Sorted array is");
+        lg.log(Level.INFO,"Sorted array is:");
         printArray(arr);
     }
 
