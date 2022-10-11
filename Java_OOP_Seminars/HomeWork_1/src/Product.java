@@ -13,4 +13,5 @@ public class Product {
     public String getInfo() {
         return String.format("Type: %s; Name: %s; Price: %.2f; Weight: %.2f", type, name, price, weight);
     }
+
 }

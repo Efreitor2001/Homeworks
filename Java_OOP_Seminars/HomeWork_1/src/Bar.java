@@ -13,4 +13,9 @@ public class Bar extends Product {
     public String getInfo() {
         return String.format("%s;  Filling: %s", super.getInfo(), this.filling);
     }
+
+    @Override
+    public String toString() {
+        return getInfo();
+    }
 }

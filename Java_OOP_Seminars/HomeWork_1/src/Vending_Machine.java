@@ -1,7 +1,7 @@
 import java.util.HashMap;
 
 public class Vending_Machine {
-    private HashMap<String, Product> prod = new HashMap<>();
+    private final HashMap<String, Product> prod = new HashMap<>();
     Bar prod1 = new Bar("Chocolate Bar", "Snickers", 30.75, 50.50, "Peanut");
     Drink prod2 = new Drink("Tea", "Lipton", 75.30, 1.5, "Lemon");
     Drink prod3 = new Drink("Tea", "Lipton", 75.30, 1.5, "Grin tea");
@@ -17,14 +17,5 @@ public class Vending_Machine {
         prod.put("B2", prod5);
         prod.put("B3", prod6);
         return prod;
-    }
-
-    public String getInfo() {
-        return String.format("%s", prod.values());
-    }
-
-    @Override
-    public String toString() {
-        return getInfo();
     }
 }

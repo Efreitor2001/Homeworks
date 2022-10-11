@@ -13,4 +13,9 @@ public class Drink extends Product {
     public String getInfo() {
         return String.format("%s;  Taste: %s", super.getInfo(), this.taste);
     }
+
+    @Override
+    public String toString() {
+        return getInfo();
+    }
 }

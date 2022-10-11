@@ -9,7 +9,7 @@ public class Main {
             logger.log(Level.WARNING, "Enter position:");
             String pos = scanner.next();
             Vending_Machine test = new Vending_Machine();
-            System.out.println(test.Prod().get(pos));
+            logger.log(Level.INFO, test.Prod().get(pos).toString());
         }
     }
 }
